@@ -8,10 +8,10 @@ const APPS_DATA = [
     type: '浏览器插件',
     description: '一键从 AI 对话导出 Word 文档，完美保留公式与格式。',
     features: [
-      '支持导出标准 Word',
-      '自动识别渲染数学公式',
-      '一键长截图',
-      '兼容多款主流 AI 平台'
+      'AI 对话导出 Word',
+      '复制 AI 对话中的公式',
+      'DeepSeek 长截图',
+      '兼容主流 AI 平台'
     ],
     icon: '/assets/icons/deepshare.svg',
     iconAlt: 'DeepShare Logo',
@@ -36,8 +36,8 @@ const APPS_DATA = [
     type: '浏览器插件',
     description: '专门为 AI 生成图片设计的处理工具。',
     features: [
-      '智能去除 AI 生成产生的水印',
-      '一键精准抠图/背景去除',
+      '去除 Gemini 生成的水印',
+      '智能背景去除',
       '保持图片原始质量',
       '极简操作'
     ],
