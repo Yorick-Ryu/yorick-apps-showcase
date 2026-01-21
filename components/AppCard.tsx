@@ -65,7 +65,7 @@ export default function AppCard({
         rel="noopener noreferrer"
         className={styles.button}
       >
-        <span>访问网站</span>
+        <span>访问</span>
         <ExternalLink size={18} />
       </a>
     </div>

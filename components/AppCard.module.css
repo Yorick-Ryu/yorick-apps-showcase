@@ -31,7 +31,7 @@
   opacity: 1;
 }
 
-.card > * {
+.card>* {
   position: relative;
   z-index: 1;
 }
@@ -110,7 +110,7 @@
 
 .feature {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.5rem;
   color: var(--text-secondary);
   font-size: 0.95rem;
@@ -121,7 +121,9 @@
   color: var(--color-primary);
   font-weight: 700;
   font-size: 1.2rem;
-  line-height: 1.5;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .button {
