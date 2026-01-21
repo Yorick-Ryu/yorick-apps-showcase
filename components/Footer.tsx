@@ -52,7 +52,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.copyright}>
-          <p>© 2024 Yorick Apps. 用心打造每一个工具。</p>
+          <p>© 2026 Yorick Apps. 用心打造每一个工具。</p>
         </div>
       </div>
     </footer>
