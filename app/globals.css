@@ -62,7 +62,6 @@ body {
 body {
   color: var(--text-primary);
   background: var(--bg-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -70,7 +69,7 @@ a {
   text-decoration: none;
 }
 
-/* Smooth transitions for theme changes */
+/* 平滑的主题切换过渡 */
 * {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }

@@ -1,5 +1,4 @@
-'use client'
-
+// 使用命名导入，Next.js 14 的打包器会自动 tree-shake
 import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import styles from './AppCard.module.css'
@@ -51,8 +50,8 @@ export default function AppCard({
       <p className={styles.description}>{description}</p>
 
       <ul className={styles.features}>
-        {features.map((feature, index) => (
-          <li key={index} className={styles.feature}>
+        {features.map((feature) => (
+          <li key={feature} className={styles.feature}>
             <span className={styles.bullet}>•</span>
             {feature}
           </li>

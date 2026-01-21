@@ -1,11 +1,10 @@
-'use client'
-
 import Image from 'next/image'
 import XiaohongshuIcon from './icons/XiaohongshuIcon'
 import DouyinIcon from './icons/DouyinIcon'
 import styles from './Footer.module.css'
 
-const socialPlatforms = [
+// 静态社交平台数据 - 提升到组件外部避免重复创建
+const SOCIAL_PLATFORMS = [
   {
     name: '小红书',
     icon: XiaohongshuIcon,
@@ -26,7 +25,7 @@ export default function Footer() {
           <p className={styles.text}>关注我的社交平台</p>
 
           <div className={styles.social}>
-            {socialPlatforms.map((platform) => {
+            {SOCIAL_PLATFORMS.map((platform) => {
               const IconComponent = platform.icon
               return (
                 <div key={platform.name} className={styles.platform}>

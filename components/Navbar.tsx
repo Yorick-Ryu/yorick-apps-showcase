@@ -1,5 +1,6 @@
 'use client'
 
+// 使用命名导入，Next.js 14 的打包器会自动 tree-shake
 import { Moon, Sun } from 'lucide-react'
 import Image from 'next/image'
 import { useTheme } from '@/lib/theme-context'

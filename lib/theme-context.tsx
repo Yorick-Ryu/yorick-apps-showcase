@@ -13,15 +13,39 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('system')
+  const [theme, setThemeState] = useState<Theme>('system')
   const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light')
 
   useEffect(() => {
     const stored = localStorage.getItem('theme') as Theme
     if (stored) {
-      setTheme(stored)
+      setThemeState(stored)
     }
   }, [])
+
+  const setTheme = (newTheme: Theme) => {
+    const root = document.documentElement
+
+    const updateTheme = () => {
+      let applied: 'light' | 'dark' = 'light'
+
+      if (newTheme === 'system') {
+        applied = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      } else {
+        applied = newTheme
+      }
+
+      // 直接切换主题
+      root.classList.remove('light', 'dark')
+      root.classList.add(applied)
+      setResolvedTheme(applied)
+
+      setThemeState(newTheme)
+      localStorage.setItem('theme', newTheme)
+    }
+
+    updateTheme()
+  }
 
   useEffect(() => {
     const root = document.documentElement
@@ -41,7 +65,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
 
     updateTheme()
-    localStorage.setItem('theme', theme)
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     const handler = () => theme === 'system' && updateTheme()
