@@ -69,9 +69,46 @@ a {
   text-decoration: none;
 }
 
-/* 平滑的主题切换过渡 */
+/* 平滑的主题切换过渡 - 默认过渡 */
 * {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* View Transition API 核心样式 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 999;
+}
+
+/* 扩散动画控制 */
+.view-transition-active::view-transition-new(root) {
+  animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes reveal {
+  from {
+    clip-path: circle(0 at var(--x, 50%) var(--y, 50%));
+  }
+
+  to {
+    /* 使用 200vmax 确保覆盖超宽屏幕 */
+    clip-path: circle(200vmax at var(--x, 50%) var(--y, 50%));
+  }
+}
+
+/* 视图过渡期间禁用默认过渡以防止冲突 */
+html.view-transition-active *,
+html.view-transition-active {
+  transition: none !important;
 }
 
 /* Glassmorphism effect */

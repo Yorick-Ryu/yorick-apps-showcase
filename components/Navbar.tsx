@@ -9,8 +9,8 @@ import styles from './Navbar.module.css'
 export default function Navbar() {
   const { resolvedTheme, setTheme } = useTheme()
 
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+  const toggleTheme = (e: React.MouseEvent) => {
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark', e)
   }
 
   return (

@@ -6,7 +6,7 @@ type Theme = 'light' | 'dark' | 'system'
 
 interface ThemeContextType {
   theme: Theme
-  setTheme: (theme: Theme) => void
+  setTheme: (theme: Theme, event?: React.MouseEvent | { x: number; y: number }) => void
   resolvedTheme: 'light' | 'dark'
 }
 
@@ -23,7 +23,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, [])
 
-  const setTheme = (newTheme: Theme) => {
+  const setTheme = (newTheme: Theme, event?: React.MouseEvent | { x: number; y: number }) => {
     const root = document.documentElement
 
     const updateTheme = () => {
@@ -35,7 +35,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         applied = newTheme
       }
 
-      // 直接切换主题
       root.classList.remove('light', 'dark')
       root.classList.add(applied)
       setResolvedTheme(applied)
@@ -44,7 +43,43 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem('theme', newTheme)
     }
 
-    updateTheme()
+    // 如果浏览器不支持 startViewTransition，直接更新
+    if (!document.startViewTransition) {
+      updateTheme()
+      return
+    }
+
+    // 获取点击位置
+    let x = 0
+    let y = 0
+    if (event) {
+      if ('clientX' in event) {
+        x = event.clientX
+        y = event.clientY
+      } else {
+        x = event.x
+        y = event.y
+      }
+    } else {
+      x = window.innerWidth / 2
+      y = window.innerHeight / 2
+    }
+
+    // 开始视图过渡
+    root.style.setProperty('--x', `${x}px`)
+    root.style.setProperty('--y', `${y}px`)
+    root.classList.add('view-transition-active')
+
+    const transition = document.startViewTransition(() => {
+      updateTheme()
+    })
+
+    transition.finished.finally(() => {
+      // 增加一个小延时，确保浏览器完全完成渲染后再移除类，防止样式闪烁
+      setTimeout(() => {
+        root.classList.remove('view-transition-active')
+      }, 20)
+    })
   }
 
   useEffect(() => {
