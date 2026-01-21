@@ -18,6 +18,20 @@ const APPS_DATA = [
     url: 'https://ds.rick216.cn/'
   },
   {
+    name: '青幕',
+    type: '网页应用',
+    description: '高效的语音转字幕工具，让后期制作更简单。',
+    features: [
+      '高精度语音识别文字',
+      '生成专业 SRT 字幕',
+      '支持多种文件格式',
+      '实时编辑与预览'
+    ],
+    icon: '/assets/icons/qingmu.svg',
+    iconAlt: '青幕 Logo',
+    url: 'https://qm.rick216.cn/'
+  },
+  {
     name: 'BananaPeel',
     type: '浏览器插件',
     description: '专门为 AI 生成图片设计的处理工具。',
@@ -42,20 +56,6 @@ const APPS_DATA = [
       '导出高清细节图'
     ],
     url: 'https://superlens.rick216.cn/'
-  },
-  {
-    name: '青幕',
-    type: '网页应用',
-    description: '高效的语音转字幕工具，让后期制作更简单。',
-    features: [
-      '高精度语音识别文字',
-      '生成专业 SRT 字幕',
-      '支持多种文件格式',
-      '实时编辑与预览'
-    ],
-    icon: '/assets/icons/qingmu.svg',
-    iconAlt: '青幕 Logo',
-    url: 'https://qm.rick216.cn/'
   }
 ]
 

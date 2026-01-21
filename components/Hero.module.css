@@ -15,6 +15,18 @@
   z-index: 0;
 }
 
+.background::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15rem;
+  background: linear-gradient(to bottom, transparent, var(--bg-secondary));
+  z-index: 2;
+  pointer-events: none;
+}
+
 .gradientOrb1,
 .gradientOrb2,
 .gradientOrb3 {
@@ -54,12 +66,16 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
+
   33% {
     transform: translate(30px, -30px) scale(1.1);
   }
+
   66% {
     transform: translate(-20px, 20px) scale(0.9);
   }
@@ -96,6 +112,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
