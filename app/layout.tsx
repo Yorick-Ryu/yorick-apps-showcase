@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Yorick Apps - 为 AI 时代打造工具',
   description: '探索由 Yorick 独立开发的 AI 增强工具集，让创作更高效，让生活更智能',
   icons: {
-    icon: '/assets/icons/logo.png',
+    icon: '/assets/icons/logo-rounded.png',
   },
 }
 
