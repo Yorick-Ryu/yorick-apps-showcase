@@ -16,12 +16,12 @@ export default function Hero() {
 
       <div className={styles.content}>
         <h1 className={styles.title}>
-          为 AI 时代<br />
-          打造工具
+          源于需求<br />
+          归于实用
         </h1>
         <p className={styles.subtitle}>
-          探索由 Yorick 独立开发的 AI 增强工具集<br />
-          让创作更高效，让生活更智能
+          探索由 Yorick 独立开发的实用工具集<br />
+          每一个工具，都从真实需求出发
         </p>
       </div>
     </section>

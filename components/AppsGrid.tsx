@@ -18,6 +18,20 @@ const APPS_DATA = [
     url: 'https://ds.rick216.cn/'
   },
   {
+    name: 'ToFly',
+    type: '网页应用',
+    description: 'The ultimate suite of privacy-focused productivity tools. Fast, secure, and running entirely on the edge.',
+    features: [
+      '隐私优先设计',
+      '完全端侧运行',
+      '快速响应体验',
+      '安全可靠'
+    ],
+    icon: '/assets/icons/tofly.png',
+    iconAlt: 'ToFly Logo',
+    url: 'https://www.tofly.app/'
+  },
+  {
     name: '青幕',
     type: '网页应用',
     description: '高效的语音转字幕工具，让后期制作更简单。',
@@ -56,6 +70,32 @@ const APPS_DATA = [
       '导出高清细节图'
     ],
     url: 'https://superlens.rick216.cn/'
+  },
+  {
+    name: 'SharedNotes',
+    type: 'Android / Desktop',
+    description: 'A note-taking application that supports real-time sharing, Markdown syntax, and supports Android platform and Desktop platform (Windows, MacOS, Linux).',
+    features: [
+      '实时共享笔记',
+      'Markdown 语法支持',
+      'Android 客户端',
+      '跨平台桌面端'
+    ],
+    url: 'https://github.com/Yorick-Ryu/SharedNotes'
+  },
+  {
+    name: '酷客工具箱',
+    type: 'Android',
+    description: '用于 vivo/iQOO 的系统工具箱',
+    features: [
+      '系统优化工具',
+      'vivo/iQOO 专用',
+      '多种实用功能',
+      '便捷管理'
+    ],
+    icon: '/assets/icons/cokotools.png',
+    iconAlt: '酷客工具箱 Logo',
+    url: 'https://github.com/Yorick-Ryu/CokoTools'
   }
 ]
 
