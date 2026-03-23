@@ -2,13 +2,13 @@
 
 一个现代化的个人作品展示网站，展示 Yorick 开发的各类 AI 工具和插件。
 
-## 🎨 特性
+## 特性
 
-- ✨ Material 3 Expressive 设计语言
-- 🌓 深浅色主题切换
-- 📱 完全响应式设计
-- 🎭 毛玻璃效果和流畅动画
-- 🚀 基于 Next.js 14 + TypeScript
+- 暗色优先的工业编辑风设计，琥珀色单一强调色
+- 深浅色主题切换，基于 View Transition API 的圆形扩散动画
+- Syne 显示字体 + JetBrains Mono 等宽字体排版
+- 完全响应式设计
+- 基于 Next.js 14 + TypeScript
 
 ## 🛠️ 技术栈
 
