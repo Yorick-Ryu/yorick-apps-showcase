@@ -1,142 +1,134 @@
 .hero {
   position: relative;
-  min-height: 60vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 4rem 2rem;
+  padding: 9rem 2rem 7rem;
+  background-color: var(--bg-primary);
 }
 
-.background {
+.glow {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 65%;
+  background: radial-gradient(
+    ellipse 80% 100% at 50% -20%,
+    var(--accent-glow) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
   z-index: 0;
 }
 
-.background::after {
-  content: '';
+.watermark {
+  position: absolute;
+  right: -0.04em;
+  bottom: -0.18em;
+  font-family: var(--font-display);
+  font-size: clamp(11rem, 28vw, 22rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  opacity: 0.035;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fadeBottom {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 15rem;
+  height: 10rem;
   background: linear-gradient(to bottom, transparent, var(--bg-secondary));
   z-index: 2;
   pointer-events: none;
-}
-
-.gradientOrb1,
-.gradientOrb2,
-.gradientOrb3 {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.3;
-  animation: float 20s ease-in-out infinite;
-}
-
-.gradientOrb1 {
-  width: 500px;
-  height: 500px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  top: -10%;
-  left: -10%;
-  animation-delay: 0s;
-}
-
-.gradientOrb2 {
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
-  bottom: -10%;
-  right: -10%;
-  animation-delay: 7s;
-}
-
-.gradientOrb3 {
-  width: 350px;
-  height: 350px;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation-delay: 14s;
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  33% {
-    transform: translate(30px, -30px) scale(1.1);
-  }
-
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
 }
 
 .content {
   position: relative;
   z-index: 1;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.eyebrowLine {
+  flex: none;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.8;
 }
 
 .title {
-  font-size: 4rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 7rem);
   font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: fadeInUp 1s ease-out;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  animation: fadeInUp 0.7s ease-out 0.12s both;
+}
+
+.titleAccent {
+  color: var(--accent);
 }
 
 .subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   color: var(--text-secondary);
-  line-height: 1.8;
-  animation: fadeInUp 1s ease-out 0.2s backwards;
+  line-height: 2;
+  animation: fadeInUp 0.7s ease-out 0.24s both;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
+    filter: blur(6px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 50vh;
-    padding: 3rem 1.5rem;
+    min-height: 70vh;
+    padding: 5rem 1.5rem 4rem;
   }
 
-  .title {
-    font-size: 2.5rem;
+  .eyebrowLine {
+    width: 1.5rem;
   }
 
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .gradientOrb1,
-  .gradientOrb2,
-  .gradientOrb3 {
-    width: 300px;
-    height: 300px;
+  .watermark {
+    opacity: 0.025;
   }
 }

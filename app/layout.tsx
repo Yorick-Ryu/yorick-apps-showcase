@@ -1,13 +1,25 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Syne, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/lib/theme-context'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--font-syne',
+  display: 'swap',
+  weight: ['400', '600', '700', '800']
+})
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono-jb',
+  display: 'swap',
+  weight: ['400', '500']
+})
 
 export const metadata: Metadata = {
-  title: 'Yorick Apps - 为 AI 时代打造工具',
-  description: '探索由 Yorick 独立开发的 AI 增强工具集，让创作更高效，让生活更智能',
+  title: 'Yorick Apps — Yorick 独立开发的实用工具集',
+  description: '探索 Yorick 独立开发的实用工具集',
   icons: {
     icon: '/assets/icons/logo-rounded.png',
   },
@@ -20,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${syne.variable} ${mono.variable}`}>
         <ThemeProvider>
           {children}
         </ThemeProvider>

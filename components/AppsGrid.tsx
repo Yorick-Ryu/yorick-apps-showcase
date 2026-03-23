@@ -1,7 +1,6 @@
 import AppCard from './AppCard'
 import styles from './AppsGrid.module.css'
 
-// 静态应用数据 - 提升到组件外部避免重复创建
 const APPS_DATA = [
   {
     name: 'DeepShare',
@@ -103,7 +102,13 @@ export default function AppsGrid() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>精选作品</h2>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.title}>
+            <span className={styles.titleIndex}>01 —</span>
+            精选作品
+          </h2>
+          <div className={styles.headerLine} />
+        </div>
         <div className={styles.grid}>
           {APPS_DATA.map((app) => (
             <AppCard key={app.name} {...app} />

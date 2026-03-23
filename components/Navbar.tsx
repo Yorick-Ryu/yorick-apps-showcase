@@ -1,6 +1,5 @@
 'use client'
 
-// 使用命名导入，Next.js 14 的打包器会自动 tree-shake
 import { Moon, Sun } from 'lucide-react'
 import Image from 'next/image'
 import { useTheme } from '@/lib/theme-context'
@@ -21,12 +20,16 @@ export default function Navbar() {
             <Image
               src="/assets/icons/logo.png"
               alt="Yorick Apps Logo"
-              width={40}
-              height={40}
+              width={28}
+              height={28}
               className={styles.logo}
             />
           </div>
-          <span className={styles.brandName}>Yorick Apps</span>
+          <span className={styles.brandName}>
+            <span className={styles.brandYorick}>YORICK</span>
+            <span className={styles.brandSep}>·</span>
+            <span className={styles.brandApps}>APPS</span>
+          </span>
         </div>
 
         <button
@@ -35,9 +38,9 @@ export default function Navbar() {
           aria-label="Toggle theme"
         >
           {resolvedTheme === 'dark' ? (
-            <Sun size={20} />
+            <Sun size={15} />
           ) : (
-            <Moon size={20} />
+            <Moon size={15} />
           )}
         </button>
       </div>

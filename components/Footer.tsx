@@ -3,7 +3,6 @@ import XiaohongshuIcon from './icons/XiaohongshuIcon'
 import DouyinIcon from './icons/DouyinIcon'
 import styles from './Footer.module.css'
 
-// 静态社交平台数据 - 提升到组件外部避免重复创建
 const SOCIAL_PLATFORMS = [
   {
     name: '小红书',
@@ -21,9 +20,8 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.content}>
-          <p className={styles.text}>关注我的社交平台</p>
-
+        <div className={styles.left}>
+          <p className={styles.label}>关注我的社交平台</p>
           <div className={styles.social}>
             {SOCIAL_PLATFORMS.map((platform) => {
               const IconComponent = platform.icon
@@ -31,7 +29,7 @@ export default function Footer() {
                 <div key={platform.name} className={styles.platform}>
                   <span className={styles.platformName}>
                     <span className={styles.platformIcon}>
-                      <IconComponent size={20} />
+                      <IconComponent size={15} />
                     </span>
                     {platform.name}
                   </span>
@@ -39,8 +37,8 @@ export default function Footer() {
                     <Image
                       src={platform.qrCode}
                       alt={`${platform.name} 二维码`}
-                      width={150}
-                      height={150}
+                      width={140}
+                      height={140}
                       className={styles.qrCode}
                     />
                   </div>
@@ -50,9 +48,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className={styles.copyright}>
-          <p>© {new Date().getFullYear()} Yorick Apps. 用心打造每一个工具。</p>
-        </div>
+        <p className={styles.copyright}>
+          © {new Date().getFullYear()} Yorick Apps
+        </p>
       </div>
     </footer>
   )

@@ -1,5 +1,4 @@
-// 使用命名导入，Next.js 14 的打包器会自动 tree-shake
-import { ExternalLink } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import styles from './AppCard.module.css'
 
@@ -25,13 +24,17 @@ export default function AppCard({
   return (
     <div className={styles.card}>
       <div className={styles.header}>
+        <div className={styles.headerText}>
+          <span className={styles.tag}>{type}</span>
+          <h3 className={styles.name}>{name}</h3>
+        </div>
         <div className={styles.iconContainer}>
           {icon ? (
             <Image
               src={icon}
               alt={iconAlt || name}
-              width={64}
-              height={64}
+              width={52}
+              height={52}
               className={styles.icon}
             />
           ) : (
@@ -40,11 +43,6 @@ export default function AppCard({
             </div>
           )}
         </div>
-
-        <div className={styles.headerText}>
-          <h3 className={styles.name}>{name}</h3>
-          <span className={styles.tag}>{type}</span>
-        </div>
       </div>
 
       <p className={styles.description}>{description}</p>
@@ -52,7 +50,7 @@ export default function AppCard({
       <ul className={styles.features}>
         {features.map((feature) => (
           <li key={feature} className={styles.feature}>
-            <span className={styles.bullet}>•</span>
+            <span className={styles.bullet} />
             {feature}
           </li>
         ))}
@@ -64,8 +62,8 @@ export default function AppCard({
         rel="noopener noreferrer"
         className={styles.button}
       >
-        <span>访问</span>
-        <ExternalLink size={18} />
+        <span>访问项目</span>
+        <ArrowUpRight size={14} className={styles.buttonArrow} />
       </a>
     </div>
   )
